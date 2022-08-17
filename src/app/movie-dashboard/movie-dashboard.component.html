@@ -1,27 +1,26 @@
-<div style="display:flex; justify-content:end;margin-left:1200px;">
-    <input type="text" placeholder="Search Movie" [(ngModel)]="searchText"/>
+<div class="search-box">
+    <input type="text" placeholder="Search Movie" [(ngModel)]="searchText" />
     <button (click)="search()" type="button">Go</button>
     <button (click)="reset()" type="button">Clear</button>
 </div>
 
+
+
 <div *ngIf="displayNoRecords" style="padding:100px;">
     <h3 style="text-align:center;color:white">We couldn't find data for
-           <span style="color:cyan">"{{searchText}}"</span><br>
-           Make sure the movie names are spelled correctly
+        <span style="color:cyan">"{{searchText}}"</span><br>
+        Make sure the movie names are spelled correctly
     </h3>
 </div>
 
 
 <div class="card" *ngFor="let movie of movies">
-    <img  class="img" src="../../assets/movies/{{movie.movieTitle}}.jpg" alt={{movie.movieTitle}}>
+    <img class="img" src="../../assets/movies/{{movie.movieTitle}}.jpg" alt={{movie.movieTitle}}>
     <div>
         <img src="../../assets/movies/rating.jpg" alt={{movie.rating}} /><span>{{movie.rating}}</span><br>
-        <span>{{movie.movieTitle | titlecase }}</span>  
+        <span>{{movie.movieTitle | titlecase }}</span>
         <span>{{movie.genre}}</span>
         <span>{{movie.yearOfRelease}}</span>
-       br>
+        br>
     </div>
 </div>
-
-
-
